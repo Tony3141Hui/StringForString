@@ -2,6 +2,18 @@
 
 A Java Web Service To Supply Strings.
 
+## Dev Plan
+
++ [x] Create **Github Repos** & **Empty IDEA Project**.
+
++ [ ] A **Nutz** Web Service response **GET request** with constant string on localhost.
+
++ [ ] A **Nutz** Web Service response **RESTful request** with strings from **mysql** on localhost.
+
++ [ ] A **Nutz** Web Service response **RESTful request** with strings from **mysql** on Ubuntu server.
+
++ [ ] Add some details.
+
 ## Install
 
 1. Open the folder with **IntelliJ IDEA** (2019.3.5+)
