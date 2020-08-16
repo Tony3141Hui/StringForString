@@ -4,9 +4,13 @@ A Java Web Service To Supply Strings.
 
 ## Install
 
-```
-Not Decided Yet!
-```
+1. Open the folder with **IntelliJ IDEA** (2019.3.5+)
+2. Use maven to package.
+
+    ```
+    mvn package
+    ```
+3. Put .jar in tomcat server.
 
 ## Usage
 
