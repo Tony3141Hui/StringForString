@@ -8,7 +8,7 @@ A Java Web Service To Supply Strings.
 
 + [x] A **Nutz** Web Service response **GET request** with constant strings on localhost.
 
-+ [ ] A **Nutz** Web Service response **RESTful request** with strings from **mysql** on localhost.
++ [x] A **Nutz** Web Service response **RESTful request** with strings from **mysql** on localhost.
 
 + [ ] A **Nutz** Web Service response **RESTful request** with strings from **mysql** on Ubuntu server.
 
