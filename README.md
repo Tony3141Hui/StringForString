@@ -10,7 +10,7 @@ A Java Web Service To Supply Strings.
 
 + [x] A **Nutz** Web Service response **RESTful request** with strings from **mysql** on localhost.
 
-+ [ ] A **Nutz** Web Service response **RESTful request** with strings from **mysql** on Ubuntu server.
++ [ ] A **Nutz** Web Service response **RESTful request** with strings from **mysql** on Linux server.
 
 + [ ] Add some details.
 

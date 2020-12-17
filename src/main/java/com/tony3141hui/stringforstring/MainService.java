@@ -1,21 +1,13 @@
 package com.tony3141hui.stringforstring;
 
+import com.tony3141hui.stringforstring.dao.implement.StringPairDao;
 import org.nutz.lang.util.NutMap;
 import org.nutz.mvc.adaptor.JsonAdaptor;
 import org.nutz.mvc.annotation.*;
 
-import java.util.HashMap;
-
 public class MainService {
 
-    private static final HashMap<String, String> fakeDao = new HashMap<String, String>();
-
-    static {
-
-        fakeDao.put("hello", "Hello Nutz!");
-        fakeDao.put("test", "testvalue");
-
-    }
+    private static final StringPairDao stringPairDao = new StringPairDao();
 
     @AdaptBy(type = JsonAdaptor.class)
     @At("/strings")
@@ -25,7 +17,15 @@ public class MainService {
 
         NutMap jsonMap = new NutMap();
 
-        jsonMap.put("value", fakeDao.get(key));
+        if (key == null || !stringPairDao.containsKey(key)) {
+
+            jsonMap.put("msg", "Error: key == null || !containsKey");
+
+        } else {
+
+            jsonMap.put("value", stringPairDao.get(key));
+
+        }
 
         return jsonMap;
 
@@ -39,18 +39,18 @@ public class MainService {
 
         NutMap jsonMap = new NutMap();
 
-        if (key == null || fakeDao.containsKey(key)) {
+        if (key == null || stringPairDao.containsKey(key)) {
 
-            jsonMap.put("value", "Error: key == null || containsKey");
+            jsonMap.put("msg", "Error: key == null || containsKey");
 
         } else if (value == null) {
 
-            jsonMap.put("value", "Done: nothing");
+            jsonMap.put("msg", "Error: value == null");
 
         } else {
 
-            fakeDao.put(key, value);
-            jsonMap.put("value", "Done: create");
+            stringPairDao.post(key, value);
+            jsonMap.put("msg", "Done: create");
 
         }
 
@@ -66,14 +66,18 @@ public class MainService {
 
         NutMap jsonMap = new NutMap();
 
-        if (key == null || !fakeDao.containsKey(key)) {
+        if (key == null || !stringPairDao.containsKey(key)) {
 
-            jsonMap.put("value", "Error: key == null || !containsKey");
+            jsonMap.put("msg", "Error: key == null || !containsKey");
+
+        } else if (value == null) {
+
+            jsonMap.put("msg", "Error: value == null");
 
         } else {
 
-            fakeDao.put(key, value);
-            jsonMap.put("value", "Done: update");
+            stringPairDao.put(key, value);
+            jsonMap.put("msg", "Done: update");
 
         }
 
@@ -89,14 +93,14 @@ public class MainService {
 
         NutMap jsonMap = new NutMap();
 
-        if (key == null || !fakeDao.containsKey(key)) {
+        if (key == null || !stringPairDao.containsKey(key)) {
 
-            jsonMap.put("value", "Error: key == null || !containsKey");
+            jsonMap.put("msg", "Error: key == null || !containsKey");
 
         } else {
 
-            fakeDao.remove(key);
-            jsonMap.put("value", "Done: delete");
+            stringPairDao.remove(key);
+            jsonMap.put("msg", "Done: delete");
 
         }
 
